@@ -18,19 +18,19 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "bin": {
     "nis": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsup --watch",
     "dev:unbuild": "unbuild --stub",
@@ -50,26 +50,31 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "npx simple-git-hooks"
   },
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.2",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "ora": "^8.0.1"
+  },
   "devDependencies": {
-    "@eiog/eslint-config-ts": "^0.0.2",
+    "@antfu/eslint-config": "^2.23.2",
     "@eiog/ts-config": "^0.0.3",
-    "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.14.2",
-    "@vitest/ui": "^1.6.0",
+    "@types/node": "^20.14.12",
+    "@vitest/ui": "^2.0.4",
     "bumpp": "^9.4.1",
     "commitlint": "^19.3.0",
     "consola": "^3.2.3",
-    "cz-git": "^1.9.3",
-    "czg": "^1.9.3",
-    "eslint": "^9.4.0",
+    "cz-git": "^1.9.4",
+    "czg": "^1.9.4",
+    "eslint": "^9.7.0",
     "esno": "^4.7.0",
-    "lint-staged": "^15.2.6",
+    "lint-staged": "^15.2.7",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.13.8",
-    "tsup": "8.1.0",
-    "typescript": "^5.4.5",
+    "taze": "^0.16.1",
+    "tsup": "8.2.2",
+    "typescript": "^5.5.4",
     "unbuild": "^2.0.0",
-    "vitest": "^1.6.0"
+    "vitest": "^2.0.4"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm type:check"
@@ -78,11 +83,5 @@
     "*.{js,jsx,ts,tsx}": [
       "pnpm lint:fix"
     ]
-  },
-  "dependencies": {
-    "chalk": "^5.3.0",
-    "commander": "^12.1.0",
-    "inquirer": "^9.2.23",
-    "ora": "^8.0.1"
   }
 }

@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 /* eslint-disable no-console */
+import process from 'node:process'
 import { Command } from 'commander'
-import inquirer from 'inquirer'
+import { select } from '@inquirer/prompts'
 import ora from 'ora'
 import pkg from '../package.json'
 
@@ -21,15 +22,14 @@ program
     console.log(name)
     console.log(options)
     const spinner = ora('Loading unicorns')
-    const { value } = await inquirer.prompt({
-      name: 'value',
-      type: 'list',
+    const value = await select({
+      message: '🎯Select a test project !',
       choices: [
         { name: 'ora set start', value: 'start' },
         { name: 'ora set success', value: 'success' },
         { name: 'ora set fail', value: 'fail' },
       ],
-      message: '🎯Select a test project !',
+
     })
     if (value === 'start')
       spinner.start('🦄 Start!')
